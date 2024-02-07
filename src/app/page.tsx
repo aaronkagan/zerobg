@@ -38,27 +38,16 @@ export default function Home() {
   }
 
   function downloadImage() {
-    saveAs(imageURL, 'image.jpg'); // Put your image URL here.
+    saveAs(imageURL, 'image.jpg');
   }
 
   return (
-    <main
-      style={{
-        display: 'flex',
-        // justifyContent: 'center',
-        paddingTop: '5rem',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '2rem',
-        width: '100%'
-      }}
-    >
-      {/* {imageURL && <img src={imageURL} />} */}
+    <main className="flex gap-[2rem] flex-col items-center pt-[5rem]">
       <p>{loading && 'loading'}</p>
       <Input
         type="file"
         onChange={handleUploadFile}
-        style={{ width: '250px' }}
+        className="w-[250px]"
       />
 
       {img && (

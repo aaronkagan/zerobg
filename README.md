@@ -23,3 +23,5 @@ saveAs('image_url', 'image.jpg') // Put your image URL here.
     return <Button onClick={downloadImage}>Download!</Button>
 
 }
+
+SHADCN for styling
