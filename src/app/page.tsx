@@ -15,7 +15,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const [img, setImg] = useState<any>('');
+  const [img, setImg] = useState('');
 
   function handleUploadFile(e) {
     console.log(e.target.files);
@@ -28,6 +28,7 @@ export default function Home() {
 
   async function fetchImageURL() {
     setLoading(true);
+    setError('');
 
     try {
       const res = await fetch('/api', {
