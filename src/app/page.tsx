@@ -5,11 +5,13 @@ import { headers } from 'next/headers';
 
 import ReactCompareImage from 'react-compare-image';
 
+import { saveAs } from 'file-saver';
+
 export default function Home() {
-  const [imageURL, setImageURL] = useState(null);
+  const [imageURL, setImageURL] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const [img, setImg] = useState<any>(null);
+  const [img, setImg] = useState<any>('');
 
   function handleUploadFile(e) {
     console.log(e.target.files);
@@ -32,22 +34,38 @@ export default function Home() {
     setLoading(false);
   }
 
+  function downloadImage() {
+    saveAs(imageURL, 'image.jpg'); // Put your image URL here.
+  }
+
   return (
-    <main>
+    <main
+      style={{
+        display: 'flex',
+        // justifyContent: 'center',
+        paddingTop: '5rem',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '2rem',
+        width: '100%'
+      }}
+    >
       {/* {imageURL && <img src={imageURL} />} */}
       <p>{loading && 'loading'}</p>
       <input
         type="file"
         onChange={handleUploadFile}
       />
-      <button onClick={fetchImageURL}>Remove Background</button>
+
+      {img && <button onClick={fetchImageURL}>Remove Background</button>}
+
+      {imageURL && <button onClick={downloadImage}>Download Image</button>}
       {imageURL && (
         <ReactCompareImage
           leftImage={img}
           rightImage={imageURL}
         />
       )}
-      ;
     </main>
   );
 }

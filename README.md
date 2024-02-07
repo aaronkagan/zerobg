@@ -11,4 +11,15 @@ https://www.npmjs.com/package/react-compare-image
 must have
 upload photo
 remove background
-download photo
+download photo https://www.npmjs.com/package/file-saver
+
+import { saveAs } from 'file-saver'
+
+const Index = () => {
+const downloadImage = () => {
+saveAs('image_url', 'image.jpg') // Put your image URL here.
+}
+
+    return <Button onClick={downloadImage}>Download!</Button>
+
+}
