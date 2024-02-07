@@ -15,7 +15,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const [img, setImg] = useState('');
+  const [img, setImg] = useState<any>('');
 
   function handleUploadFile(e) {
     console.log(e.target.files);
