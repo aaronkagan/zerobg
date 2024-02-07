@@ -68,10 +68,12 @@ export default function Home() {
         </Button>
       )}
       {imageURL && (
-        <ReactCompareImage
-          leftImage={img}
-          rightImage={imageURL}
-        />
+        <div className="w-[50%]">
+          <ReactCompareImage
+            leftImage={img}
+            rightImage={imageURL}
+          />
+        </div>
       )}
     </main>
   );
