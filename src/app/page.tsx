@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input';
 export default function Home() {
   const [imageURL, setImageURL] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const [img, setImg] = useState<any>('');
 
@@ -27,14 +28,21 @@ export default function Home() {
 
   async function fetchImageURL() {
     setLoading(true);
-    const res = await fetch('/api', {
-      method: 'POST',
-      body: JSON.stringify(img),
-      headers: { 'content-type': 'application/json' }
-    });
-    const data = await res.json();
-    setImageURL(data.message);
-    setLoading(false);
+
+    try {
+      const res = await fetch('/api', {
+        method: 'POST',
+        body: JSON.stringify(img),
+        headers: { 'content-type': 'application/json' }
+      });
+      const data = await res.json();
+      setImageURL(data.message);
+    } catch (err) {
+      setError('There was an unexpected error: ' + err);
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   }
 
   function downloadImage() {
@@ -44,6 +52,7 @@ export default function Home() {
   return (
     <main className="flex gap-[2rem] flex-col items-center pt-[5rem]">
       <p>{loading && 'loading'}</p>
+      {error && JSON.stringify(error)}
       <Input
         type="file"
         onChange={handleUploadFile}
