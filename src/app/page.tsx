@@ -7,6 +7,9 @@ import ReactCompareImage from 'react-compare-image';
 
 import { saveAs } from 'file-saver';
 
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+
 export default function Home() {
   const [imageURL, setImageURL] = useState('');
   const [loading, setLoading] = useState(false);
@@ -52,14 +55,29 @@ export default function Home() {
     >
       {/* {imageURL && <img src={imageURL} />} */}
       <p>{loading && 'loading'}</p>
-      <input
+      <Input
         type="file"
         onChange={handleUploadFile}
+        style={{ width: '250px' }}
       />
 
-      {img && <button onClick={fetchImageURL}>Remove Background</button>}
+      {img && (
+        <Button
+          variant="outline"
+          onClick={fetchImageURL}
+        >
+          Remove Background
+        </Button>
+      )}
 
-      {imageURL && <button onClick={downloadImage}>Download Image</button>}
+      {imageURL && (
+        <Button
+          variant="outline"
+          onClick={downloadImage}
+        >
+          Download Image
+        </Button>
+      )}
       {imageURL && (
         <ReactCompareImage
           leftImage={img}
