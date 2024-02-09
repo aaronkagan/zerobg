@@ -12,10 +12,13 @@ import { Input } from '@/components/ui/input';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
 
+import Confetti from 'react-confetti-boom';
+
 export default function Home() {
   const [imageURL, setImageURL] = useState('');
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const [img, setImg] = useState<any>('');
 
@@ -32,6 +35,7 @@ export default function Home() {
   async function fetchImageURL() {
     setLoading(true);
     setIsError(false);
+    setIsSuccess(false);
 
     try {
       const res = await fetch('/api', {
@@ -41,6 +45,7 @@ export default function Home() {
       });
       const data = await res.json();
       setImageURL(data.message);
+      setIsSuccess(true);
     } catch (err) {
       toast({
         variant: 'destructive',
@@ -124,6 +129,16 @@ export default function Home() {
         </div>
       )}
       {isError && <Toaster />}
+      {isError && (
+        <Confetti
+          particleCount={200}
+          effectInterval={1000}
+          effectCount={3}
+          spreadDeg={360}
+          mode="boom"
+          y={0.2}
+        />
+      )}
     </main>
   );
 }
