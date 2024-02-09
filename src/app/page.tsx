@@ -85,8 +85,8 @@ export default function Home() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <main className="flex gap-[2rem] flex-col items-center ">
-      <nav>
+    <main className="flex gap-[2rem] flex-col items-center bg-[url('/images/bg.jpeg')] bg-no-repeat bg-cover min-h-[100vh]">
+      <nav className="flex w-[90%] justify-between items-center">
         <div
           className="text-[40px] font-bold cursor-pointer"
           onClick={() => location.reload()}
@@ -94,6 +94,7 @@ export default function Home() {
           <span className="text-[blue]">zero</span>
           <span className="">bg</span>
         </div>
+        <Button className="text-[20px] cursor-pointer">Login</Button>
       </nav>
       {/* <Input
         type="file"
