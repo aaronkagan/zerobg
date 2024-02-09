@@ -40,4 +40,5 @@ replicate has some next starters demo take a look at how they do it, that might 
 Vercel has a time out of 10 seconds for http calls, the call to remove the bg to replicate is taking longer than that thus timing out, one way to work around this is: when you call replicate replicate responds with a prediction id, you can send 200 to the front end with that prediction id and then make a while call to that predictionID until it returns success which will also send you the url of the generated image or you can use a webhook which replicate usually has that option
 
 confetti library : https://www.npmjs.com/package/react-confetti-boom#live-demo
-React Dropzone: https://www.npmjs.com/package/react-dropzone
+React Dropzone library: https://www.npmjs.com/package/react-dropzone
+React dropzone tutorial https://www.youtube.com/watch?v=8uChP5ivQ1Q
