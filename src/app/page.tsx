@@ -9,16 +9,19 @@ import { saveAs } from 'file-saver';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/components/ui/use-toast';
 
 export default function Home() {
   const [imageURL, setImageURL] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const [img, setImg] = useState<any>('');
 
+  const { toast } = useToast();
+
   function handleUploadFile(e) {
-    console.log(e.target.files);
     const data = new FileReader();
     data.addEventListener('load', () => {
       setImg(data.result);
@@ -28,7 +31,7 @@ export default function Home() {
 
   async function fetchImageURL() {
     setLoading(true);
-    setError('');
+    setIsError(false);
 
     try {
       const res = await fetch('/api', {
@@ -39,7 +42,13 @@ export default function Home() {
       const data = await res.json();
       setImageURL(data.message);
     } catch (err) {
-      setError('There was an unexpected error: ' + err);
+      toast({
+        variant: 'destructive',
+        title: 'Unexpected Error',
+        description: 'Please Try Again',
+        className: 'bg-[red] text-[white]'
+      });
+      setIsError(true);
       console.log(err);
     } finally {
       setLoading(false);
@@ -53,7 +62,8 @@ export default function Home() {
   return (
     <main className="flex gap-[2rem] flex-col items-center pt-[5rem]">
       <p>{loading && 'loading'}</p>
-      {error && JSON.stringify(error)}
+
+      {isError && <Toaster />}
       <Input
         type="file"
         onChange={handleUploadFile}
