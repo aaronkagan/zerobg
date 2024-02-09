@@ -151,7 +151,7 @@ export default function Home() {
         </div>
       )}
 
-      {img && !isSuccess && (
+      {img && !loading && !isSuccess && (
         <>
           <Image
             alt="uploaded image"
