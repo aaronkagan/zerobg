@@ -20,6 +20,7 @@
     "react-compare-image": "^3.4.0",
     "react-confetti-boom": "^1.0.0",
     "react-dom": "^18",
+    "react-dropzone": "^14.2.3",
     "replicate": "^0.25.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"

@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import styles from './page.module.css';
 import { headers } from 'next/headers';
 
@@ -14,6 +14,8 @@ import { useToast } from '@/components/ui/use-toast';
 
 import Confetti from 'react-confetti-boom';
 
+import { useDropzone } from 'react-dropzone';
+
 export default function Home() {
   const [imageURL, setImageURL] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,13 +26,13 @@ export default function Home() {
 
   const { toast } = useToast();
 
-  function handleUploadFile(e) {
-    const data = new FileReader();
-    data.addEventListener('load', () => {
-      setImg(data.result);
-    });
-    data.readAsDataURL(e.target.files[0]);
-  }
+  // function handleUploadFile(e) {
+  //   const data = new FileReader();
+  //   data.addEventListener('load', () => {
+  //     setImg(data.result);
+  //   });
+  //   data.readAsDataURL(e.target.files[0]);
+  // }
 
   async function fetchImageURL() {
     setLoading(true);
@@ -64,13 +66,65 @@ export default function Home() {
     saveAs(imageURL, 'image.jpg');
   }
 
+  const onDrop = useCallback((acceptedFiles) => {
+    const file = new FileReader();
+    // file.addEventListener('load', () => {
+    //   setImg(data.result);
+    // });
+
+    file.onload = function () {
+      setImg(file.result);
+    };
+
+    file.readAsDataURL(acceptedFiles[0]);
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
   return (
     <main className="flex gap-[2rem] flex-col items-center pt-[5rem]">
-      <Input
+      {/* <Input
         type="file"
         onChange={handleUploadFile}
         className="w-[250px]"
-      />
+      /> */}
+
+      <div {...getRootProps()}>
+        <input {...getInputProps()} />
+        {isDragActive ? (
+          <div className="border border-black border-dashed w-[500px] h-[150px] flex flex-col items-center gap-[1rem] justify-center bg-[#dcedf9]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <path
+                d="M0 0h48v48h-48z"
+                fill="none"
+              />
+              <path d="M38.71 20.07c-1.36-6.88-7.43-12.07-14.71-12.07-5.78 0-10.79 3.28-13.3 8.07-6.01.65-10.7 5.74-10.7 11.93 0 6.63 5.37 12 12 12h26c5.52 0 10-4.48 10-10 0-5.28-4.11-9.56-9.29-9.93zm-10.71 5.93v8h-8v-8h-6l10-10 10 10h-6z" />
+            </svg>
+            <p>Drop the file here ...</p>
+          </div>
+        ) : (
+          <div className="border border-black border-dashed w-[500px] h-[150px] flex flex-col items-center gap-[1rem] justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <path
+                d="M0 0h48v48h-48z"
+                fill="none"
+              />
+              <path d="M38.71 20.07c-1.36-6.88-7.43-12.07-14.71-12.07-5.78 0-10.79 3.28-13.3 8.07-6.01.65-10.7 5.74-10.7 11.93 0 6.63 5.37 12 12 12h26c5.52 0 10-4.48 10-10 0-5.28-4.11-9.56-9.29-9.93zm-10.71 5.93v8h-8v-8h-6l10-10 10 10h-6z" />
+            </svg>
+            <p>Drag 'n' drop a file here, or click to select file</p>
+          </div>
+        )}
+      </div>
 
       {img && (
         <Button
@@ -129,7 +183,7 @@ export default function Home() {
         </div>
       )}
       {isError && <Toaster />}
-      {isError && (
+      {isSuccess && (
         <Confetti
           particleCount={200}
           effectInterval={1000}
