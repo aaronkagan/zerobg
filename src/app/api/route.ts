@@ -6,18 +6,20 @@ const replicate = new Replicate({
 });
 
 export async function POST(req) {
-  const data = await req.json();
-  // console.log(data);
+  const body = await req.json();
 
+  // setTimeout(async () => {
   try {
     const output = await replicate.run(
       'cjwbw/rembg:fb8af171cfa1616ddcf1242c093f9c46bcada5ad4cf6f2fbe8b81b330ec5c003',
       {
         input: {
-          image: data
+          image: body
         }
       }
     );
+
+    console.log(output);
 
     return NextResponse.json({
       message: output
@@ -25,4 +27,5 @@ export async function POST(req) {
   } catch (err) {
     console.log(err);
   }
+  // }, 11000);
 }
