@@ -16,7 +16,6 @@ import Confetti from 'react-confetti-boom';
 
 import { useDropzone } from 'react-dropzone';
 
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 export default function Home() {
@@ -29,8 +28,6 @@ export default function Home() {
   const [img, setImg] = useState<any>('');
 
   const { toast } = useToast();
-
-  const router = useRouter();
 
   // function handleUploadFile(e) {
   //   const data = new FileReader();
@@ -91,8 +88,8 @@ export default function Home() {
     <main className="flex gap-[2rem] flex-col items-center ">
       <nav>
         <div
-          className="text-[40px] font-bold"
-          onClick={() => router.refresh()}
+          className="text-[40px] font-bold cursor-pointer"
+          onClick={() => location.reload()}
         >
           <span className="text-[blue]">zero</span>
           <span className="">bg</span>
