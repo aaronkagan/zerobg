@@ -111,7 +111,7 @@ export default function Home() {
         >
           <input {...getInputProps()} />
           {isDragActive ? (
-            <div className="border border-black border-dashed w-[500px] max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem] justify-center bg-[#dcedf9]">
+            <div className="border border-black border-dashed w-[390px] max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem] justify-center bg-[#dcedf9]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="48"
@@ -130,7 +130,7 @@ export default function Home() {
               <p>Drop the file here ...</p>
             </div>
           ) : (
-            <div className="border border-black border-dashed w-[500px]  max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem]  justify-center">
+            <div className="border border-black border-dashed w-[390px]  max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem]  justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="48"
