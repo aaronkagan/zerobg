@@ -154,6 +154,7 @@ export default function Home() {
       {img && !isSuccess && (
         <>
           <Image
+            alt="uploaded image"
             src={img}
             width={200}
             height={200}
@@ -207,7 +208,7 @@ export default function Home() {
         </svg>
       )}
       {imageURL && (
-        <div className="w-[50%]">
+        <div className="w-[20%]">
           <ReactCompareImage
             leftImage={img}
             rightImage={imageURL}
