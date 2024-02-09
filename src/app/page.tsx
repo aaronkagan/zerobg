@@ -208,7 +208,7 @@ export default function Home() {
         </svg>
       )}
       {imageURL && (
-        <div className="w-[200px]">
+        <div className="w-[200px] border-black border rounded-[5px] border-[blue]">
           <ReactCompareImage
             leftImage={img}
             rightImage={imageURL}
