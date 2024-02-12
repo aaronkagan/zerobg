@@ -42,3 +42,5 @@ Vercel has a time out of 10 seconds for http calls, the call to remove the bg to
 confetti library : https://www.npmjs.com/package/react-confetti-boom#live-demo
 React Dropzone library: https://www.npmjs.com/package/react-dropzone
 React dropzone tutorial https://www.youtube.com/watch?v=8uChP5ivQ1Q
+
+Apply this pattern to recall the API over and over until it succeeds
