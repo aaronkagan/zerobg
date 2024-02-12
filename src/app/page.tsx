@@ -23,19 +23,10 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  // const [preview, setPreview] = useState<any>('');
 
   const [img, setImg] = useState<any>('');
 
   const { toast } = useToast();
-
-  // function handleUploadFile(e) {
-  //   const data = new FileReader();
-  //   data.addEventListener('load', () => {
-  //     setImg(data.result);
-  //   });
-  //   data.readAsDataURL(e.target.files[0]);
-  // }
 
   async function fetchImageURL() {
     setLoading(true);
@@ -71,9 +62,6 @@ export default function Home() {
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = new FileReader();
-    // file.addEventListener('load', () => {
-    //   setImg(data.result);
-    // });
 
     file.onload = function () {
       setImg(file.result);
@@ -96,11 +84,6 @@ export default function Home() {
         </div>
         <Button className="text-[20px] cursor-pointer">Login</Button>
       </nav>
-      {/* <Input
-        type="file"
-        onChange={handleUploadFile}
-        className="w-[250px]"
-      /> */}
 
       {!img && (
         <div
@@ -209,7 +192,7 @@ export default function Home() {
         </svg>
       )}
       {imageURL && (
-        <div className="w-[200px] border-black border rounded-[5px] border-[blue]">
+        <div className="w-[200px] border-black border rounded-[5px] ">
           <ReactCompareImage
             leftImage={img}
             rightImage={imageURL}
