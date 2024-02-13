@@ -16,7 +16,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
+  const [reset, setReset] = useState(false);
   const [img, setImg] = useState<any>('');
 
   const { toast } = useToast();
@@ -62,6 +62,12 @@ export default function Home() {
 
   function downloadImage() {
     saveAs(imageURL, 'image.jpg');
+    setImageURL('');
+    setReset(true);
+  }
+
+  function handleReset() {
+    location.reload();
   }
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -249,6 +255,15 @@ export default function Home() {
           onClick={downloadImage}
         >
           Download Image
+        </Button>
+      )}
+
+      {reset && (
+        <Button
+          variant="outline"
+          onClick={handleReset}
+        >
+          Process Another Image
         </Button>
       )}
 
