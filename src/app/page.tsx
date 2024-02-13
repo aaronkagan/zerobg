@@ -1,7 +1,5 @@
 'use client';
 import { useState, useCallback } from 'react';
-import styles from './page.module.css';
-import { headers } from 'next/headers';
 import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
@@ -32,7 +30,8 @@ export default function Home() {
       const res = await fetch('/api', {
         method: 'POST',
         body: JSON.stringify(img),
-        headers: { 'content-type': 'application/json' }
+        headers: { 'content-type': 'application/json' },
+        cache: 'no-store'
       });
 
       if (!res.ok) {
@@ -40,6 +39,11 @@ export default function Home() {
       }
 
       const data = await res.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
       setImageURL(data.message);
       setIsSuccess(true);
     } catch (err) {
@@ -177,7 +181,7 @@ export default function Home() {
           <circle
             fill="#9CA3AF"
             stroke="#9CA3AF"
-            stroke-width="1"
+            strokeWidth="1"
             r="70"
             cx="-200"
             cy="100"
@@ -195,7 +199,7 @@ export default function Home() {
           <circle
             fill="#9CA3AF"
             stroke="#9CA3AF"
-            stroke-width="1"
+            strokeWidth="1"
             r="70"
             cx="100"
             cy="100"
@@ -213,7 +217,7 @@ export default function Home() {
           <circle
             fill="#9CA3AF"
             stroke="#9CA3AF"
-            stroke-width="1"
+            strokeWidth="1"
             r="70"
             cx="400"
             cy="100"

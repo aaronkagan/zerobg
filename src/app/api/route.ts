@@ -24,8 +24,6 @@ export async function POST(req) {
       }
     );
 
-    console.log(output);
-
     return NextResponse.json({ message: output, status: 200 });
   } catch (err) {
     console.error('Error calling Replicate API:', err);
