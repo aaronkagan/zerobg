@@ -118,7 +118,7 @@ export default function Home() {
                 </svg>
               </div>
 
-              <p className="text-gray-500">Drop file here ...</p>
+              <p className="text-gray-500">Drop image here ...</p>
             </div>
           ) : (
             <div className="border border-gray-400 border-dashed w-[300px]  max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem] rounded-[8px] p-3">
@@ -141,7 +141,8 @@ export default function Home() {
               </div>
 
               <p className="text-gray-500">
-                Drag &apos;n&apos; drop a file here, or click to select file
+                Drag &apos;n&apos; drop an image here, or click to select an
+                image
               </p>
             </div>
           )}
