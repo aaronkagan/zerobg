@@ -34,6 +34,11 @@ export default function Home() {
         body: JSON.stringify(img),
         headers: { 'content-type': 'application/json' }
       });
+
+      if (!res.ok) {
+        throw new Error('Failed to fetch data');
+      }
+
       const data = await res.json();
       setImageURL(data.message);
       setIsSuccess(true);
@@ -45,7 +50,7 @@ export default function Home() {
         className: 'bg-[red] text-[white]'
       });
       setIsError(true);
-      console.log(err);
+      console.error('Error fetching image URL:', err);
     } finally {
       setLoading(false);
     }
