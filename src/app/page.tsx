@@ -164,8 +164,9 @@ export default function Home() {
             src={img}
             width={200}
             height={200}
-            className="rounded-[8px]"
+            className=" rounded-[8px] h-[100%] w-[300px] md:w-[400px] max-w-[90%]"
           />
+
           <Button
             variant="outline"
             onClick={fetchImageURL}
