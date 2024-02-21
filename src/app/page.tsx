@@ -278,7 +278,26 @@ export default function Home() {
           y={0.2}
         />
       )}
-      <footer className="flex items-center justify-center gap-2 py-4 mt-auto mb-0 text-sm font-medium">
+      <footer className="flex flex-col items-center justify-center gap-2 py-4 mt-auto mb-0 text-sm font-medium">
+        <p className="text-gray-500">
+          Designed and Developed by{' '}
+          <a
+            className="text-[black]"
+            href="https://www.aaronkagan.dev/"
+          >
+            Aaron Kagan
+          </a>
+        </p>
+
+        <div className="flex gap-3">
+          <p className="text-[black]">
+            <a href="https://github.com/aaronkagan/zerobg">Github Repo</a>
+          </p>
+          <p className="text-[black]">
+            <a href="https://www.linkedin.com/in/aaron-kagan/">LinkedIn</a>
+          </p>
+        </div>
+
         <p className="text-gray-500">© 2024 ZeroBG. All rights reserved.</p>
       </footer>
     </main>
