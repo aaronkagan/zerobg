@@ -72,7 +72,7 @@ export default function Home() {
     const file = new FileReader();
 
     file.onload = function () {
-      setImg(file.result);
+      setImg(file.result as string);
     };
 
     file.readAsDataURL(acceptedFiles[0]);
