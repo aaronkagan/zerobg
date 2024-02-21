@@ -59,6 +59,7 @@ Additional features:
 ### Install project locally
 
 - Clone the repo
+- Change directories into the repo folder
 - Run `npm install`
 - Sign up at [replicate.com](https://replicate.com/) to get an API key (It's free to try limited API calls)
 - In the root of the project create a .env.local file
