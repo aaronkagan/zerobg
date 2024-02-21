@@ -105,7 +105,7 @@ export default function Home() {
 
       {!img && (
         <div
-          className="flex justify-center"
+          className="flex justify-center cursor-pointer"
           {...getRootProps()}
         >
           <input {...getInputProps()} />
