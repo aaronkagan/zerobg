@@ -107,7 +107,7 @@ export default function Home() {
         >
           <input {...getInputProps()} />
           {isDragActive ? (
-            <div className="border border-gray-400 border-dashed w-[300px] max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem]   bg-[#dcedf9] rounded-[8px] p-3">
+            <div className="border border-gray-400 border-dashed w-[300px] md:w-[400px] max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem]   bg-[#dcedf9] rounded-[8px] p-3">
               <div className="h-[50%] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +129,7 @@ export default function Home() {
               <p className="text-gray-500">Drop image here ...</p>
             </div>
           ) : (
-            <div className="border border-gray-400 border-dashed w-[300px]  max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem] rounded-[8px] p-3">
+            <div className="border border-gray-400 border-dashed w-[300px] md:w-[400px] max-w-[90%] h-[150px] flex flex-col items-center gap-[1rem] rounded-[8px] p-3">
               <div className="h-[50%] flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -238,7 +238,7 @@ export default function Home() {
         </svg>
       )}
       {imageURL && (
-        <div className="w-[200px] border-black border rounded-[8px] ">
+        <div className=" w-[300px] md:w-[400px] max-w-[90%] border-black border rounded-[8px] ">
           <ReactCompareImage
             leftImage={img}
             rightImage={imageURL}
