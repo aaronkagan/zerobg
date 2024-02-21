@@ -11,6 +11,7 @@ Remove the background from images using the power of AI!
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
+- [How to run the project locally](#install-project-locally)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -54,6 +55,16 @@ Additional features:
 ### Useful resources
 
 - [React dropzone tutorial](https://www.youtube.com/watch?v=8uChP5ivQ1Q)
+
+### Install project locally
+
+- Clone the repo
+- Run `npm install`
+- Sign up at [replicate.com](https://replicate.com/) to get an API key
+- In the root of the project create a .env.local file
+- Add the API key from replicate in the following format
+  - `REPLICATE_API_TOKEN=enter_your_API_key_here`
+- Run the project with `npm run dev`
 
 ## Author
 
