@@ -60,10 +60,9 @@ Additional features:
 
 - Clone the repo
 - Run `npm install`
-- Sign up at [replicate.com](https://replicate.com/) to get an API key
+- Sign up at [replicate.com](https://replicate.com/) to get an API key (It's free to try limited API calls)
 - In the root of the project create a .env.local file
-- Add the API key from replicate in the following format
-  - `REPLICATE_API_TOKEN=enter_your_API_key_here`
+- Add the API key from replicate to the .env.local file in the following format `REPLICATE_API_TOKEN=enter_your_API_key_here`
 - Run the project with `npm run dev`
 
 ## Author
