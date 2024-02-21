@@ -16,7 +16,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [reset, setReset] = useState(false);
   const [img, setImg] = useState<any>('');
 
   const { toast } = useToast();
@@ -50,7 +49,7 @@ export default function Home() {
       toast({
         variant: 'destructive',
         title: 'Unexpected Error',
-        description: 'Please Try Again',
+        description: 'Please Try Again or Try A Different Image',
         className: 'bg-[red] text-[white]'
       });
       setIsError(true);
@@ -63,7 +62,6 @@ export default function Home() {
   function downloadImage() {
     saveAs(imageURL, 'image.jpg');
     setImageURL('');
-    setReset(true);
   }
 
   function handleReset() {
@@ -257,12 +255,12 @@ export default function Home() {
         </Button>
       )}
 
-      {reset && (
+      {img && !loading && (
         <Button
           variant="outline"
           onClick={handleReset}
         >
-          Process Another Image
+          Process A Different Image
         </Button>
       )}
 
