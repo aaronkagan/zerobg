@@ -8,7 +8,7 @@ const replicate = new Replicate({
 export async function POST(req: NextRequest) {
   let body;
   try {
-    body = req.body;
+    body = await req.json();
   } catch (err) {
     console.error('Error parsing request body:', err);
     return NextResponse.json({ error: 'Invalid request body', status: 400 });
