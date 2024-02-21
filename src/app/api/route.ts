@@ -1,14 +1,15 @@
 import { NextResponse } from 'next/server';
 import Replicate from 'replicate';
+import { NextApiRequest } from 'next';
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN
 });
 
-export async function POST(req: any) {
+export async function POST(req: NextApiRequest) {
   let body;
   try {
-    body = await req.json();
+    body = await req.body;
   } catch (err) {
     console.error('Error parsing request body:', err);
     return NextResponse.json({ error: 'Invalid request body', status: 400 });
