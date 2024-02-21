@@ -92,7 +92,6 @@ export default function Home() {
           <span className="text-[blue]">zero</span>
           <span className="">bg</span>
         </div>
-        {/* <Button className="text-[20px] cursor-pointer">Login</Button> */}
       </nav>
 
       <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
