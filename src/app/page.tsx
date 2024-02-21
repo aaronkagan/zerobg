@@ -68,7 +68,7 @@ export default function Home() {
     location.reload();
   }
 
-  const onDrop = useCallback((acceptedFiles) => {
+  const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = new FileReader();
 
     file.onload = function () {
