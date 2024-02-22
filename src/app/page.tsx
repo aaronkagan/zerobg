@@ -277,9 +277,9 @@ export default function Home() {
           />
         )}
 
-        <p className="text-gray-500 max-w-[30%]">
+        <p className="text-gray-500 sm:max-w-[30%] max-w-[90%]">
           Demo Version Note: Due to API limits please upload an image smaller
-          than 1MB. Larger images may cause the API to timeout.
+          than 1MB. Larger images may cause the process to timeout.
         </p>
         <footer className="flex flex-col items-center justify-center gap-2 py-4 mt-auto mb-0 text-sm font-medium">
           <p className="text-gray-500">
