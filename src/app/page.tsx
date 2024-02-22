@@ -49,7 +49,7 @@ export default function Home() {
       toast({
         variant: 'destructive',
         title: 'Unexpected Error',
-        description: `Please Try Again or Try A Different Image`,
+        description: `Please Try Again Or Try A Smaller Image`,
         className: 'bg-[red] text-[white]'
       });
       setIsError(true);
@@ -151,8 +151,7 @@ export default function Home() {
                 </div>
 
                 <p className="text-gray-500">
-                  Drag &apos;n&apos; drop an image here, or click to select an
-                  image
+                  Drag &apos;n drop an image here, or click to select an image
                 </p>
               </div>
             )}
@@ -277,6 +276,11 @@ export default function Home() {
             y={0.2}
           />
         )}
+
+        <p className="text-gray-500 max-w-[30%]">
+          Demo Version Note: Due to API limits please upload an image smaller
+          than 1MB. Larger images may cause the API to timeout.
+        </p>
         <footer className="flex flex-col items-center justify-center gap-2 py-4 mt-auto mb-0 text-sm font-medium">
           <p className="text-gray-500">
             Designed and Developed by{' '}
